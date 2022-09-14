@@ -1,5 +1,5 @@
 /*
- Could have used it as a migration script. 
+ Could have used it as a migration script.
  */
 
 create table users_token
