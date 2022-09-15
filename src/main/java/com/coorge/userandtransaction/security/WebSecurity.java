@@ -1,7 +1,7 @@
 package com.coorge.userandtransaction.security;
 
 
-import com.fzkattendnace.filter.AuthFilter;
+import com.coorge.userandtransaction.filter.AuthFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

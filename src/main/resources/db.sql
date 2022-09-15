@@ -21,10 +21,10 @@ create table users
 
 create table user_transactions
 (
-    id                      VARCHAR(100) NOT NULL,
+    id                      INTEGER  AUTO_INCREMENT,
     user_id                 VARCHAR(100) NOT NULL,
     description             VARCHAR(40)  NOT NULL,
     amount                  DOUBLE NOT NULL,
-    transaction_type_id     INTEGER NOT NULL
+    transaction_type_id     INTEGER NOT NULL,
     PRIMARY KEY (id)
 );

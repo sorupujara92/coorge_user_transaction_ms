@@ -2,6 +2,7 @@ package com.coorge.userandtransaction.controller;
 
 import com.coorge.userandtransaction.entity.UserToken;
 import com.coorge.userandtransaction.entity.Users;
+import com.coorge.userandtransaction.models.GetUserToken;
 import com.coorge.userandtransaction.models.UsersResponse;
 import com.coorge.userandtransaction.repository.UsersRepository;
 import com.coorge.userandtransaction.repository.UsersTokenRepository;
@@ -28,11 +29,15 @@ public class UserTokenController {
   @Autowired
   UserTokenService userTokenService;
   @PostMapping
-  public ResponseEntity<Object> getUserToken(@RequestBody Users users) {
-    UsersResponse usersResponse = userTokenService.getUserToken(users);
-    if(users!=null) {
-      return ResponseEntity.ok(usersResponse);
-    } else {
+  public ResponseEntity<Object> getUserToken(@RequestBody GetUserToken users) {
+    try {
+      UsersResponse usersResponse = userTokenService.getUserToken(users);
+      if (usersResponse != null) {
+        return ResponseEntity.ok(usersResponse);
+      } else {
+        return ResponseEntity.badRequest().build();
+      }
+    }catch (Exception e){
       return ResponseEntity.badRequest().build();
     }
   }

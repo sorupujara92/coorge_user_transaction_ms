@@ -36,7 +36,7 @@ public class TransactionController {
   }
 
   @PatchMapping(path = "/{id}")
-  public ResponseEntity<Object> updateTransaction(@PathVariable String id,@RequestBody UpdateTransaction updateTransaction) {
+  public ResponseEntity<Object> updateTransaction(@PathVariable Integer id,@RequestBody UpdateTransaction updateTransaction) {
     String userId = SecurityContextHolder.getContext().getAuthentication().getName();
     UserTransactions userTransactions = transactionService.updateTransaction(updateTransaction,id,userId);
     if(userTransactions!=null) {
@@ -47,7 +47,7 @@ public class TransactionController {
   }
 
   @GetMapping(path = "/{id}")
-  public ResponseEntity<Object> getTransaction(@PathVariable String id) {
+  public ResponseEntity<Object> getTransaction(@PathVariable Integer id) {
     String userId = SecurityContextHolder.getContext().getAuthentication().getName();
     UserTransactions userTransactions = transactionService.getTransaction(id,userId);
     if(userTransactions!=null) {
@@ -58,7 +58,7 @@ public class TransactionController {
   }
 
   @DeleteMapping(path = "/{id}")
-  public ResponseEntity<Object> deleteTransaction(@PathVariable String id) {
+  public ResponseEntity<Object> deleteTransaction(@PathVariable Integer id) {
     try {
       String userId = SecurityContextHolder.getContext().getAuthentication().getName();
       transactionService.deleteTransaction(id, userId);
@@ -66,6 +66,6 @@ public class TransactionController {
     }catch (Exception e){
       ResponseEntity.badRequest();
     }
-
+    return ResponseEntity.badRequest().body("");
   }
 }

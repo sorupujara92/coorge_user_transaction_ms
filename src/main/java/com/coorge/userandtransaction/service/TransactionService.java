@@ -8,11 +8,11 @@ public interface TransactionService {
 
   UserTransactions createTransaction(CreateTransaction createTransaction,String userId);
 
-  UserTransactions updateTransaction(UpdateTransaction updateTransaction,String id,String userId);
+  UserTransactions updateTransaction(UpdateTransaction updateTransaction,Integer id,String userId);
 
-  UserTransactions getTransaction(String id,String userId);
+  UserTransactions getTransaction(Integer id,String userId);
 
-  void deleteTransaction(String id,String userId);
+  void deleteTransaction(Integer id,String userId);
 
 
 }

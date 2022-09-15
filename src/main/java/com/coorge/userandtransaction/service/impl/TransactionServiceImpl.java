@@ -30,7 +30,7 @@ public class TransactionServiceImpl implements TransactionService {
   }
 
   @Override
-  public UserTransactions updateTransaction(UpdateTransaction updateTransaction, String id,
+  public UserTransactions updateTransaction(UpdateTransaction updateTransaction, Integer id,
       String userId) {
     Optional<UserTransactions> userTransactions = transactionRepository.findById(id);
     if (userTransactions.isPresent() && userTransactions.get().getUserId().equals(userId)) {
@@ -43,7 +43,7 @@ public class TransactionServiceImpl implements TransactionService {
   }
 
   @Override
-  public UserTransactions getTransaction(String id, String userId) {
+  public UserTransactions getTransaction(Integer id, String userId) {
     Optional<UserTransactions> userTransactions = transactionRepository.findById(id);
     if (userTransactions.isPresent() && userTransactions.get().getUserId().equals(userId)) {
       return userTransactions.get();
@@ -54,7 +54,7 @@ public class TransactionServiceImpl implements TransactionService {
   }
 
   @Override
-  public void deleteTransaction(String id, String userId) {
+  public void deleteTransaction(Integer id, String userId) {
     Optional<UserTransactions> userTransactions = transactionRepository.findById(id);
     if (userTransactions.isPresent() && userTransactions.get().getUserId().equals(userId)) {
       transactionRepository.deleteById(id);
@@ -66,15 +66,16 @@ public class TransactionServiceImpl implements TransactionService {
   private UserTransactions getUserTransaction(UserTransactions userTransactions,
       UpdateTransaction updateTransaction) {
     UserTransactions tobeUpdated = new UserTransactions();
-    tobeUpdated.setUserId(userTransactions.getId());
+    tobeUpdated.setUserId(userTransactions.getUserId());
+    tobeUpdated.setId(userTransactions.getId());
     tobeUpdated.setDescription(
-        updateTransaction.getDescription().isPresent() ? updateTransaction.getDescription().get()
+        updateTransaction.getDescription()!=null && updateTransaction.getDescription().isPresent() ? updateTransaction.getDescription().get()
             : userTransactions.getDescription());
     tobeUpdated.setAmount(
-        updateTransaction.getAmount().isPresent() ? updateTransaction.getAmount().get()
+        updateTransaction.getAmount()!=null && updateTransaction.getAmount().isPresent() ? updateTransaction.getAmount().get()
             : userTransactions.getAmount());
     tobeUpdated.setTransactionTypeId(
-        updateTransaction.getTransaction().isPresent() ? TransactionType.valueOf(
+        updateTransaction.getTransaction()!=null && updateTransaction.getTransaction().isPresent() ? TransactionType.valueOf(
             updateTransaction.getTransaction().get()).getType()
             : userTransactions.getTransactionTypeId());
     tobeUpdated.setUserId(userTransactions.getUserId());

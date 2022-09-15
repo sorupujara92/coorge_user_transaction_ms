@@ -27,7 +27,7 @@ public class UserController {
   @PostMapping
     public ResponseEntity<Object> registerUser(@RequestBody Users users) {
     String response = userService.registerUser(users);
-    if(response.equals("success")){
+    if(response!=null && response.equals("success")){
       return ResponseEntity.ok("User created successfully");
     } else{
       return ResponseEntity.badRequest().body("User already exist");

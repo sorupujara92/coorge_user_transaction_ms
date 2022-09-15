@@ -8,7 +8,7 @@ import org.springframework.data.repository.CrudRepository;
  * the UsersRepository.
  */
 public interface TransactionRepository extends
-    CrudRepository<UserTransactions, String> {
+    CrudRepository<UserTransactions, Integer> {
 
 
 }

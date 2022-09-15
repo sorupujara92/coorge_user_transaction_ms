@@ -26,10 +26,10 @@ public class Users {
   @Column(name = "password")
   private String password;
 
-  @Column(name = "firs_tname")
+  @Column(name = "firstname")
   private String firstname;
 
-  @Column(name = "last_name")
+  @Column(name = "lastname")
   private String lastname;
 
   //Not keeping repeat_password as ideally it should be checked at the UI level.

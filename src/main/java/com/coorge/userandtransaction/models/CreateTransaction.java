@@ -1,6 +1,5 @@
 package com.coorge.userandtransaction.models;
 
-import javax.persistence.Column;
 import lombok.Getter;
 import lombok.Setter;
 
