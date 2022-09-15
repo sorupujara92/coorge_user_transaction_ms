@@ -1,6 +1,6 @@
 package com.coorge.userandtransaction.service.impl;
 
-import com.coorge.userandtransaction.TransactionType;
+import com.coorge.userandtransaction.models.TransactionType;
 import com.coorge.userandtransaction.entity.UserTransactions;
 import com.coorge.userandtransaction.models.CreateTransaction;
 import com.coorge.userandtransaction.models.UpdateTransaction;

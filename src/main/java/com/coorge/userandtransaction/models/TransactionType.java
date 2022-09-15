@@ -1,4 +1,4 @@
-package com.coorge.userandtransaction;
+package com.coorge.userandtransaction.models;
 
 /** the TransactionType. */
 public enum TransactionType {

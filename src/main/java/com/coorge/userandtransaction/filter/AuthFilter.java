@@ -56,7 +56,7 @@ public class AuthFilter extends OncePerRequestFilter {
   protected void doFilterInternal(
       HttpServletRequest req, HttpServletResponse res, FilterChain chain) {
     try {
-      if(!((req.getRequestURI().equals("/api/v1/users") &&  req.getMethod().equals("POST")) || (req.getRequestURI().equals("/api/v1/users-token") &&  req.getMethod().equals("POST")))) {
+      if(! ((req.getRequestURI().contains("docs")) ||(req.getRequestURI().contains("swagger")) ||(req.getRequestURI().equals("/api/v1/users") &&  req.getMethod().equals("POST")) || (req.getRequestURI().equals("/api/v1/users-token") &&  req.getMethod().equals("POST")))) {
         SecurityContextHolder.getContext().setAuthentication(null);
         if (StringUtils.isNotBlank(req.getHeader(AUTHORIZATION_HEADER))) {
           setAuthenticationToken(req);
