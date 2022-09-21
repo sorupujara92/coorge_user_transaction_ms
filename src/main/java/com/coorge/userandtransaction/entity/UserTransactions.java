@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Version;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -36,4 +37,8 @@ public class UserTransactions {
 
   @Column(name = "transaction_type_id")
   private Integer transactionTypeId;
+
+  @Version
+  @Column(name = "version")
+  private Integer version;
 }

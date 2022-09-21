@@ -14,7 +14,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
     })
 @EntityScan(basePackages = {"com.coorge.userandtransaction.entity"})
 @EnableJpaRepositories(basePackages = {"com.coorge.userandtransaction.repository"})
-//@EnableSwagger2
 public class DataSourceConfig {
 
 

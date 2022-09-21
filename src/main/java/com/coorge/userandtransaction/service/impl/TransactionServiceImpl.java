@@ -65,21 +65,19 @@ public class TransactionServiceImpl implements TransactionService {
 
   private UserTransactions getUserTransaction(UserTransactions userTransactions,
       UpdateTransaction updateTransaction) {
-    UserTransactions tobeUpdated = new UserTransactions();
-    tobeUpdated.setUserId(userTransactions.getUserId());
-    tobeUpdated.setId(userTransactions.getId());
-    tobeUpdated.setDescription(
+    userTransactions.setUserId(userTransactions.getUserId());
+    userTransactions.setDescription(
         updateTransaction.getDescription()!=null && updateTransaction.getDescription().isPresent() ? updateTransaction.getDescription().get()
             : userTransactions.getDescription());
-    tobeUpdated.setAmount(
+    userTransactions.setAmount(
         updateTransaction.getAmount()!=null && updateTransaction.getAmount().isPresent() ? updateTransaction.getAmount().get()
             : userTransactions.getAmount());
-    tobeUpdated.setTransactionTypeId(
+    userTransactions.setTransactionTypeId(
         updateTransaction.getTransaction()!=null && updateTransaction.getTransaction().isPresent() ? TransactionType.valueOf(
             updateTransaction.getTransaction().get()).getType()
             : userTransactions.getTransactionTypeId());
-    tobeUpdated.setUserId(userTransactions.getUserId());
-    return tobeUpdated;
+    userTransactions.setUserId(userTransactions.getUserId());
+    return userTransactions;
 
   }
 }

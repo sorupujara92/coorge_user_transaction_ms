@@ -5,6 +5,7 @@
 * For info on API's please follow
 
     [swagger](./swagger.yaml)
+
 * Auth is being handled by [AuthFilter](./src/main/java/com/coorge/userandtransaction/filter/AuthFilter.java) which is a customer filter , add random UUID as auth token.
 
 
@@ -13,4 +14,9 @@ Global Exception Handler
 
 Return response object instead of strings
 
-more test coverage
+Test Cases
+
+
+docker-compose build
+
+docker-compose up

@@ -1,8 +1,8 @@
 swagger: '2.0'
 info:
-  description: Api Documentation
+  description: User and Transaction Management service
   version: '1.0'
-  title: Api Documentation
+  title: User and Transaction Management service
   termsOfService: urn:tos
   contact: {}
   license:
@@ -128,7 +128,7 @@ paths:
     post:
       tags:
         - user-controller
-      summary: registerUser
+      summary: Register new user and save encrypted password in db.
       operationId: registerUserUsingPOST
       consumes:
         - application/json
@@ -158,7 +158,7 @@ paths:
     post:
       tags:
         - user-token-controller
-      summary: getUserToken
+      summary: Checks if username password is valid or not , if yes return auth token
       operationId: getUserTokenUsingPOST
       consumes:
         - application/json
